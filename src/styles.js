@@ -8,6 +8,7 @@ export const Container = styled.div`
   gap: 40px;
   background: url("${Background}");
   background-size: cover;
+  min-height: 1000px;
 `;
 
 export const Image = styled.img`
@@ -17,6 +18,7 @@ export const Image = styled.img`
 export const ContainerItens = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: linear-gradient(
     157.44deg,
     rgba(255, 255, 255, 0.6) 0.84%,
@@ -25,7 +27,7 @@ export const ContainerItens = styled.div`
   );
   border-radius: 61px 61px 0px 0px;
   padding: 50px 36px;
-  height: 100vh;
+  min-height: 1000px;
 `;
 
 export const H1 = styled.h1`
@@ -40,6 +42,8 @@ export const H1 = styled.h1`
 `;
 
 export const InputLabel = styled.p`
+display: flex;
+align-items: flex-start;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
@@ -48,6 +52,7 @@ export const InputLabel = styled.p`
   color: #eeeeee;
   letter-spacing: -0.408px;
   padding-left: 25px;
+  
 `;
 
 export const Input = styled.input`
@@ -63,7 +68,6 @@ export const Input = styled.input`
   font-weight: 400;
   font-size: 18px;
   line-height: 28px;
-
   color: #ffffff;
 `;
 
@@ -76,7 +80,7 @@ export const Button = styled.button`
   height: 74px;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 14px;
-  margin-top: 30px;
+  margin: 30px 0px;
   color: #eeeeee;
   cursor: pointer;
   &:hover {
@@ -84,5 +88,33 @@ export const Button = styled.button`
   }
   &:active {
     opacity: 0.5;
+  }
+`;
+
+export const User = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30px 0px;
+  width: 342px;
+  height: 58px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+
+  border: none;
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #ffffff;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 `;

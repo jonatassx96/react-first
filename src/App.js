@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import People from "./assets/user-inicio.svg";
 import Arrow from "./assets/arrow.svg";
+import Trash from "./assets/trash.svg";
 import {
   Container,
   Image,
@@ -9,35 +10,59 @@ import {
   InputLabel,
   Input,
   Button,
+  User,
 } from "./styles";
 
 function App() {
-  const users = [
-    { id: Math.random(), name: "Maria", age: 33 },
-    { id: Math.random(), name: "Jonatas", age: 26 },
-  ];
+  const [users, setUsers] = useState([]);
+  const inputName = useRef();
+  const inputAge = useRef();
+
+  // REACT HOOKS => FERRAMENTAS AUXILIARES
+  function addNewUser() {
+    setUsers([
+      {
+        id: Math.random(),
+        name: inputName.current.value,
+        age: inputAge.current.value,
+      },
+      ...users,
+    ]);
+  }
+
+  function deleteUser(userId) {
+    const newUsers = users.filter( user => user.id !== userId )
+    setUsers(newUsers)
+  }
 
   return (
     <Container>
       <Image alt="Logo-imagem" src={People} />
       <ContainerItens>
         <H1>Olá!</H1>
-        <InputLabel>Nome</InputLabel>
-        <Input placeholder="Nome"></Input>
+        <div>
+          <InputLabel>Nome</InputLabel>
+          <Input ref={inputName} placeholder="Nome"></Input>
+        </div>
 
-        <InputLabel>Idade</InputLabel>
-        <Input placeholder="Idade"></Input>
+        <div>
+          <InputLabel>Idade</InputLabel>
+          <Input ref={inputAge} placeholder="Idade"></Input>
+        </div>
 
-        <Button>
+        <Button onClick={addNewUser}>
           Cadastrar
           <img alt="Seta para direita" src={Arrow} />
         </Button>
 
         <ul>
           {users.map((user) => (
-            <li>
-              {user.name} - {user.age}
-            </li>
+            <User key={user.id}>
+              <p>{user.name}</p> <p>{user.age}</p>
+              <button onClick={() => deleteUser(user.id)}>
+                <img alt="Lixeira" src={Trash} />
+              </button>
+            </User>
           ))}
         </ul>
       </ContainerItens>

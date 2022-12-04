@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import People from "./assets/user-inicio.svg";
 import Arrow from "./assets/arrow.svg";
 import Trash from "./assets/trash.svg";
+import axios from 'axios';
 import {
   Container,
   Image,
@@ -19,15 +20,17 @@ function App() {
   const inputAge = useRef();
 
   // REACT HOOKS => FERRAMENTAS AUXILIARES
-  function addNewUser() {
-    setUsers([
-      {
-        id: Math.random(),
-        name: inputName.current.value,
-        age: inputAge.current.value,
-      },
-      ...users,
-    ]);
+  async function addNewUser() {
+    const data = await axios.post()
+
+    // setUsers([
+    //   {
+    //     id: Math.random(),
+    //     name: inputName.current.value,
+    //     age: inputAge.current.value,
+    //   },
+    //   ...users,
+    // ]);
   }
 
   function deleteUser(userId) {

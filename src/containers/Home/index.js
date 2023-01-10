@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-import People from "./assets/user-inicio.svg";
-import Arrow from "./assets/arrow.svg";
-import Trash from "./assets/trash.svg";
+import People from "../../assets/user-inicio.svg";
+import Arrow from "../../assets/arrow.svg";
+import Trash from "../../assets/trash.svg";
 import axios from "axios";
 import {
   Container,

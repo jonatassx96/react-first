@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import People from "./assets/user-inicio.svg";
 import Arrow from "./assets/arrow.svg";
 import Trash from "./assets/trash.svg";
-import axios from 'axios';
+import axios from "axios";
 import {
   Container,
   Image,
@@ -21,21 +21,25 @@ function App() {
 
   // REACT HOOKS => FERRAMENTAS AUXILIARES
   async function addNewUser() {
-    const data = await axios.post()
-
-    // setUsers([
-    //   {
-    //     id: Math.random(),
-    //     name: inputName.current.value,
-    //     age: inputAge.current.value,
-    //   },
-    //   ...users,
-    // ]);
+    const { data: newUser } = await axios.post("http://localhost:3001/users", {
+      name: inputName.current.value,
+      age: inputAge.current.value,
+    });
+    setUsers([newUser, ...users]);
   }
 
+  // React HOOK => useEffect (efeito colateral) OBS: useEffect não aceita async.
+  useEffect(() => {
+    async function fethUsers() {
+      const { data: newUsers } = await axios.get("http://localhost:3001/users");
+      setUsers(newUsers);
+    }
+    fethUsers();
+  }, []);
+
   function deleteUser(userId) {
-    const newUsers = users.filter( user => user.id !== userId )
-    setUsers(newUsers)
+    const newUsers = users.filter((user) => user.id !== userId);
+    setUsers(newUsers);
   }
 
   return (

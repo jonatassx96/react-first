@@ -48,7 +48,7 @@ function Users() {
           ))}
         </ul>
 
-        <Button >
+        <Button to="/">
           <img alt="Seta para direita" src={Arrow} />
           Voltar
         </Button>

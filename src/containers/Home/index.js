@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import People from "../../assets/user-inicio.svg";
-import Arrow from "../../assets/arrow.svg";
 import axios from "axios";
 import {
   Container,
@@ -10,6 +9,7 @@ import {
   InputLabel,
   Input,
   Button,
+  ButtonUsers,
 } from "./styles";
 
 function App() {
@@ -41,10 +41,9 @@ function App() {
           <Input ref={inputAge} placeholder="Idade"></Input>
         </div>
 
-        <Button onClick={addNewUser}>
-          Cadastrar
-          <img alt="Seta para direita" src={Arrow} />
-        </Button>
+        <Button onClick={addNewUser}>Cadastrar</Button>
+
+        <ButtonUsers to="/usuarios">Usuarios</ButtonUsers>
       </ContainerItens>
     </Container>
   );

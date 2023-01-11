@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import Background from "../../assets/bg-image.svg";
 
 export const Container = styled.div`
@@ -42,8 +44,8 @@ export const H1 = styled.h1`
 `;
 
 export const InputLabel = styled.p`
-display: flex;
-align-items: flex-start;
+  display: flex;
+  align-items: flex-start;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
@@ -52,7 +54,6 @@ align-items: flex-start;
   color: #eeeeee;
   letter-spacing: -0.408px;
   padding-left: 25px;
-  
 `;
 
 export const Input = styled.input`
@@ -73,6 +74,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   display: flex;
+  font-size: 18px;
   align-items: center;
   justify-content: center;
   gap: 15px;
@@ -81,6 +83,28 @@ export const Button = styled.button`
   background: rgba(0, 0, 0, 0.8);
   border-radius: 14px;
   margin: 30px 0px;
+  color: #eeeeee;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+  &:active {
+    opacity: 0.5;
+  }
+`;
+
+export const ButtonUsers = styled(Link)`
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 342px;
+  height: 74px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 14px;
+  margin: 5px 0px;
   color: #eeeeee;
   cursor: pointer;
   &:hover {

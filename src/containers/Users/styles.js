@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Background from "../../assets/bg-profile-image.svg";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -41,7 +42,9 @@ export const H1 = styled.h1`
   margin-bottom: 50px;
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
+  text-decoration: none;
+  font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;

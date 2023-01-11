@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Background from "../../assets/bg-image.svg";
+import Background from "../../assets/bg-profile-image.svg";
 
 export const Container = styled.div`
   display: flex;
@@ -41,36 +41,6 @@ export const H1 = styled.h1`
   margin-bottom: 50px;
 `;
 
-export const InputLabel = styled.p`
-display: flex;
-align-items: flex-start;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-  color: #eeeeee;
-  letter-spacing: -0.408px;
-  padding-left: 25px;
-  
-`;
-
-export const Input = styled.input`
-  width: 342px;
-  height: 58px;
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 14px;
-  border: none;
-  margin-bottom: 34px;
-  padding-left: 25px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 28px;
-  color: #ffffff;
-`;
-
 export const Button = styled.button`
   display: flex;
   align-items: center;
@@ -88,5 +58,36 @@ export const Button = styled.button`
   }
   &:active {
     opacity: 0.5;
+  }
+  img {
+    transform: rotateY(180deg);
+  }
+`;
+
+export const User = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30px 0px;
+  width: 342px;
+  height: 58px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+
+  border: none;
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #ffffff;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 `;

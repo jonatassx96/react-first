@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import People from "../../assets/user-inicio.svg";
 import Arrow from "../../assets/arrow.svg";
-import Trash from "../../assets/trash.svg";
 import axios from "axios";
 import {
   Container,
@@ -11,7 +10,6 @@ import {
   InputLabel,
   Input,
   Button,
-  User,
 } from "./styles";
 
 function App() {
@@ -26,21 +24,6 @@ function App() {
       age: inputAge.current.value,
     });
     setUsers([newUser, ...users]);
-  }
-
-  // React HOOK => useEffect (efeito colateral) OBS: useEffect não aceita async.
-  useEffect(() => {
-    async function fethUsers() {
-      const { data: newUsers } = await axios.get("http://localhost:3001/users");
-      setUsers(newUsers);
-    }
-    fethUsers();
-  }, []);
-
-  async function deleteUser(userId) {
-    await axios.delete(`http://localhost:3001/users/${userId}`)
-    const newUsers = users.filter((user) => user.id !== userId);
-    setUsers(newUsers);
   }
 
   return (
@@ -62,17 +45,6 @@ function App() {
           Cadastrar
           <img alt="Seta para direita" src={Arrow} />
         </Button>
-
-        <ul>
-          {users.map((user) => (
-            <User key={user.id}>
-              <p>{user.name}</p> <p>{user.age}</p>
-              <button onClick={() => deleteUser(user.id)}>
-                <img alt="Lixeira" src={Trash} />
-              </button>
-            </User>
-          ))}
-        </ul>
       </ContainerItens>
     </Container>
   );
